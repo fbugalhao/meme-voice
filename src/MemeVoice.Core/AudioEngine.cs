@@ -100,7 +100,7 @@ public sealed class AudioEngine : IDisposable
     /// </summary>
     private static bool IsSupportedFloatFormat(WaveFormat format)
     {
-        if (format.Channels != 1)
+        if (format.Channels != 1 && format.Channels != 2)
         {
             return false;
         }
