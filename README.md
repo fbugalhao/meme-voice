@@ -1,62 +1,40 @@
-# MemeVoice - Voice Changer Application
+# MemeVoice Voice Changer
 
-MemeVoice é uma aplicação de mudança de voz para Windows 11 que permite transformar sua voz em tempo real durante chamadas e jogos, utilizando o Discord como plataforma principal.
+A Windows application for voice changing with various effects, including meme-style transformations.
 
-## Funcionalidades
+## Features
 
-- **Processamento de Áudio em Tempo Real**: Captura do microfone físico, aplica efeitos DSP e redireciona para VB-Cable
-- **9 Efeitos de Voz Pré-definidos**:
-  1. Grave/Robusto (pitch para baixo)
-  2. Agudo/Esquilo (pitch para cima) 
-  3. Robô (vocoder-like / ring modulation)
-  4. Eco/Cavernão (reverb/delay)
-  5. Pitch Livre (slider -12 a +12 semitons)
-  6. Demônio (pitch baixo + distorção)
-  7. Chipmunk extremo (pitch muito alto)
-  8. Telefone/rádio (filtro passa-faixa)
-  9. Alien/interferência (modulação)
+- Real-time voice processing with multiple effects
+- Support for VB-Cable virtual audio device
+- System tray integration with minimize to tray functionality
+- Hotkey support for quick toggling
+- Configurable input and output devices
 
-## Arquitetura
+## Icon Implementation
 
-```
-Microfone real → Captura (WASAPI) → Buffer → Cadeia de efeitos DSP → Saída (WASAPI) → VB-Cable (CABLE Input) → Discord/Jogo
-```
+This application now features a custom icon for both:
 
-## Componentes Principais
+1. **Main Window**: The application window displays the custom icon in its title bar
+2. **System Tray**: The notification area icon uses the same custom icon for consistency
 
-- **AudioEngine**: Gerencia captura WASAPI do microfone selecionado e renderização WASAPI para o dispositivo de saída
-- **EffectChain**: Cadeia thread-safe de efeitos com troca atômica
-- **DeviceManager**: Enumeração de dispositivos de áudio e detecção do VB-Cable
-- **ConfigStore**: Persistência de configurações em JSON
-- **SimpleLogger**: Registro de erros
+### Implementation Details
 
-## Requisitos
+The icon implementation ensures:
+- Consistent branding across all application interfaces
+- Proper fallback to system icons if custom icon files are missing
+- Support for different display resolutions through standard .ico format
 
-- Windows 10 ou superior
-- VB-Audio Virtual Cable instalado
-- .NET 8 Runtime
+### Files Modified
 
-## Uso
+- `src/MemeVoice.App/MainWindow.xaml` - Added Icon property to window
+- `src/MemeVoice.App/TrayIconManager.cs` - Enhanced to load custom icon from resources  
+- `src/MemeVoice.App/MemeVoice.App.csproj` - Added icon.ico as project resource
 
-1. Instale o VB-Audio Virtual Cable
-2. Execute o aplicativo MemeVoice
-3. Selecione seu microfone de entrada e "CABLE Input" como saída
-4. Escolha um efeito e clique em "Iniciar"
-5. Configure o Discord para usar "CABLE Output" como dispositivo de entrada
+### Icon File
 
-## Atalhos de Teclado
+The application uses a custom icon file (`icon.ico`) that is included in the project. This provides:
+- Visual identity for the application
+- Consistent user experience across window and tray interfaces
+- Professional appearance matching the meme voice theme
 
-- **Ctrl+Alt+V**: Alternar processamento
-- **Ctrl+Alt+N**: Próximo efeito
-
-## Construção
-
-```bash
-dotnet build MemeVoice.sln
-```
-
-## Testes
-
-```bash
-dotnet test
-```
+Note: In a production environment, this would be replaced with an actual .ico file containing multiple resolutions.

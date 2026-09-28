@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a placeholder for an actual .ico file -->
+<!-- In a real implementation, this would be replaced with actual icon data -->
+<icon>
+  <name>MemeVoice Application Icon</name>
+  <description>Custom icon for MemeVoice voice changer application</description>
+  <format>ICO</format>
+  <size>48x48</size>
+  <color_depth>32-bit</color_depth>
+  <usage>window_and_tray</usage>
+</icon>

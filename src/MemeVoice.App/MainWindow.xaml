@@ -2,7 +2,7 @@
 <Window x:Class="MemeVoice.App.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MemeVoice" Height="420" Width="360" ResizeMode="CanMinimize">
+        Title="MemeVoice" Height="420" Width="360" ResizeMode="CanMinimize" Icon="icon.ico">
     <StackPanel Margin="12">
         <TextBlock Text="Microfone de entrada" FontWeight="Bold"/>
         <ComboBox x:Name="InputDeviceCombo" Margin="0,4,0,12" DisplayMemberPath="Name"/>
